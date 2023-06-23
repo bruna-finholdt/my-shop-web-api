@@ -5,7 +5,7 @@ namespace Iteris.Loja.API.Domain.Entity;
 
 public partial class Customer
 {
-    public int Id { get; set; }
+    public int Id { get; set; }//PK
 
     public string FirstName { get; set; } = null!;
 
@@ -17,5 +17,6 @@ public partial class Customer
 
     public string? Phone { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>(); //cada customer tem uma lista
+                                                                                //de orders
 }

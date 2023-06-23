@@ -5,7 +5,7 @@ namespace Iteris.Loja.API.Domain.Entity;
 
 public partial class Supplier
 {
-    public int Id { get; set; }
+    public int Id { get; set; }//PK
 
     public string CompanyName { get; set; } = null!;
 

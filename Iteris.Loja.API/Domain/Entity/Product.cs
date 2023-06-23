@@ -5,11 +5,11 @@ namespace Iteris.Loja.API.Domain.Entity;
 
 public partial class Product
 {
-    public int Id { get; set; }
+    public int Id { get; set; }//PK
 
     public string ProductName { get; set; } = null!;
 
-    public int SupplierId { get; set; }
+    public int SupplierId { get; set; }//FK para link com entity Supplier
 
     public decimal? UnitPrice { get; set; }
 
