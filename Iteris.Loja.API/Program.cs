@@ -24,6 +24,7 @@ builder.Services.AddScoped<ProductsRepository>();
 // Injetando repositórios: AddScoped - Uma nova instância cada vez que necessário
 builder.Services.AddTransient<CustomersService>();
 builder.Services.AddTransient<PurchasesService>();
+builder.Services.AddTransient<ProductsService>();
 
 //códigos acima para adicionar a injeção de dependência das classes CustomersRepository, OrderItemsRepository,
 //OrdersRepository e ProductsRepository como scoped e CustomersService e PurchaseService como transient. 

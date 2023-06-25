@@ -4,8 +4,8 @@ namespace Iteris.Loja.API.Domain.DTO
 {
     public class CustomerCreateRequest
     {
-        [Required]
-        [StringLength(40)]
+        [Required(ErrorMessage = "O nome é obrigatório")]
+        [StringLength(40, ErrorMessage = "Tamanho máximo de caracteres no nome deve ser 40")]
         // StringLength: Estabelece o tamanho máximo da string
         public string FirstName { get; set; } = null!;
 

@@ -29,7 +29,7 @@ namespace Iteris.Loja.API.Controllers
                                                                                          //com paginação
         {
             //Validação modelo de entrada
-            var retorno = await _customersService.Pesquisar(filterResquest);
+            var retorno = await _customersService.Pesquisar(filterResquest);//é o ListarTodos (customers)
 
             if (retorno.Sucesso)
                 return Ok(retorno);

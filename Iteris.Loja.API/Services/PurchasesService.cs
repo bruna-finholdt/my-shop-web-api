@@ -7,6 +7,7 @@ namespace Iteris.Loja.API.Services
 {
     public class PurchasesService
     {
+        //usando o Customers, Orders, OrderItems e ProductsRepository via injeção de dependência:
         private readonly ProductsRepository _productsRepository;
         private readonly OrdersRepository _ordersRepository;
         private readonly OrderItemsRepository _orderItemsRepository;
@@ -25,7 +26,6 @@ namespace Iteris.Loja.API.Services
             // criar objeto padrão que vamos criar aos poucos
             Order novaOrder = new();
             List<OrderItem> listaOrderItens = new();
-
 
             //Criar validações
             // validar se Customer / Cliente existe com o id informado
@@ -126,6 +126,38 @@ namespace Iteris.Loja.API.Services
 
             return new ServiceResponse<PurchaseResponse>(new PurchaseResponse(novaOrder));
         }
+
+        /// <summary>
+        /// Lista Customers com paginação
+        /// </summary>
+        /// <param name="paginaAtual">Número da atual página de 0 até N</param>
+        /// <param name="qtdPagina">Número de itens por página de 1 até 50</param>
+        /// <returns>Lista de customers com informações de paginação</returns>
+        public async Task<ServicePagedResponse<PurchaseResponse>> Pesquisar(PurchaseQueryRequest queryResquest)
+        //Lista Purchases com paginação
+        {
+            // Consulta itens no banco
+            var listaPesquisa = await _ordersRepository.Pesquisar(
+                order => !queryResquest.MinimumPriceValue.HasValue || queryResquest.MinimumPriceValue < order.TotalAmount,
+                queryResquest.PaginaAtual,
+                queryResquest.Quantidade
+            );
+            // Conta itens do banco
+            var contagem = await _ordersRepository.Contagem();
+            // Transforma Customer em CustomerResponse
+            var listaConvertida = listaPesquisa
+                .Select(order => new PurchaseResponse(order));
+
+            // Cria resultado com paginação
+            return new ServicePagedResponse<PurchaseResponse>(
+                listaConvertida,
+                contagem,
+                queryResquest.PaginaAtual,
+                queryResquest.Quantidade
+            );
+        }
+        //No método de listagem de todas as puchases, os usos do método Select da biblioteca Linq
+        //funcionam como um transformador para cada objeto da lista;
     }
 }
 
