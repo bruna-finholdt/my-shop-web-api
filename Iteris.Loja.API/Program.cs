@@ -26,6 +26,7 @@ builder.Services.AddTransient<CustomersService>();
 builder.Services.AddTransient<PurchasesService>();
 builder.Services.AddTransient<ProductsService>();
 
+
 //códigos acima para adicionar a injeção de dependência das classes CustomersRepository, OrderItemsRepository,
 //OrdersRepository e ProductsRepository como scoped e CustomersService e PurchaseService como transient. 
 
@@ -35,7 +36,16 @@ builder.Services.AddTransient<ProductsService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<IterisLojaContext>(options => options.UseSqlServer(connectionString));
 
+
 var app = builder.Build();
+
+// Enable CORS
+app.UseCors(builder =>
+{
+    builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

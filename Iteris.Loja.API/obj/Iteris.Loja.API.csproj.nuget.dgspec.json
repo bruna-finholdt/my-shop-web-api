@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\My Projects\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj": {}
+    "C:\\My Projects\\ITC Treinamento 2023\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj": {}
   },
   "projects": {
-    "C:\\My Projects\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj": {
+    "C:\\My Projects\\ITC Treinamento 2023\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Projects\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj",
+        "projectUniqueName": "C:\\My Projects\\ITC Treinamento 2023\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj",
         "projectName": "Iteris.Loja.API",
-        "projectPath": "C:\\My Projects\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj",
+        "projectPath": "C:\\My Projects\\ITC Treinamento 2023\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj",
         "packagesPath": "C:\\Users\\bruna.finholdt\\.nuget\\packages\\",
-        "outputPath": "C:\\My Projects\\Iteris.Loja\\Iteris.Loja.API\\obj\\",
+        "outputPath": "C:\\My Projects\\ITC Treinamento 2023\\Iteris.Loja\\Iteris.Loja.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bruna.finholdt\\AppData\\Roaming\\NuGet\\NuGet.Config",

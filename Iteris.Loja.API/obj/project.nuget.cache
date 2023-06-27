@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M0WSVpcsPufDeCMPR4JsCs4RR/dRQ9CMeicb5tHzpvlFFk/oVZSBoelsXHwptQv5VlpnMb8HO8jS6M4dgxtJCg==",
+  "dgSpecHash": "kmnil7m2Y76qHtqUSC+w5akgTh2h4aLrYYx453AVFP48hMU+TbBNlSKpRtfjdniMAmRE63coV9ov+Yv557CVew==",
   "success": true,
-  "projectFilePath": "C:\\My Projects\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj",
+  "projectFilePath": "C:\\My Projects\\ITC Treinamento 2023\\Iteris.Loja\\Iteris.Loja.API\\Iteris.Loja.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bruna.finholdt\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\bruna.finholdt\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

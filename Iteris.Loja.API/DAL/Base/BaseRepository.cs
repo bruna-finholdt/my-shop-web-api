@@ -47,7 +47,7 @@ namespace Iteris.Loja.API.DAL.Base
         public async Task<T> Cadastrar(T novo)
         {
             _lojaContext.Add(novo);
-            await _lojaContext.SaveChangesAsync(); // Todo o Entiy está preparado para isso
+            await _lojaContext.SaveChangesAsync(); // Todo o Entity está preparado para isso
             return novo;
         }
 
@@ -68,7 +68,7 @@ namespace Iteris.Loja.API.DAL.Base
         /// Necessário para formar paginação
         /// </summary>
         /// <returns>Quantidade de itens naquela tabela</returns>
-        public async Task<int> Contagem() //Realiza contagem de quantos customers existem no banco
+        public async Task<int> Contagem() //Realiza contagem de quantos T existem no banco
         {
             return await _lojaContext.Set<T>().CountAsync();
         }
@@ -92,10 +92,12 @@ namespace Iteris.Loja.API.DAL.Base
         /// <param name="paginaAtual">Número da atual página de 0 até N</param>
         /// <param name="qtdPagina">Número de itens por página de 1 até 50</param>
         /// <returns>Lista de T com informações de paginação</returns>
-        public async Task<List<T>> Pesquisar(int paginaAtual, int qtdPagina) //Lista Customers com paginação
+        public async Task<List<T>> Pesquisar(int paginaAtual, int qtdPagina) //Lista de T com paginação
         {
             // Estou na página 4 (começando em 0), e tem 20 itens por página
             // descarto os primeiro 80, pego os próximos 20
+            //(80 = 20 da pagina 0 + 20 da pagina 1 + 20 da pagina 2 + 20 da pag 3. Pego os proxs 20
+            //da pag 4, a que estou!)
             int qtaPaginasAnteriores = paginaAtual * qtdPagina;
 
             return await _lojaContext
@@ -114,7 +116,7 @@ namespace Iteris.Loja.API.DAL.Base
         /// <param name="paginaAtual">Número da atual página de 0 até N</param>
         /// <param name="qtdPagina">Número de itens por página de 1 até 50</param>
         /// <returns>Lista filtrada de T com informações de paginação</returns>
-        public async Task<List<T>> Pesquisar(Expression<Func<T, bool>> filtro, int paginaAtual, int qtdPagina)
+        public async Task<List<T>> Pesquisar(Expression<Func<T, bool>> filtro, int paginaAtual, int qtdPagina)//Lista de T com paginação e filtros
         {
             // Estou na página 4 (começando em 0), e tem 20 itens por página
             // descarto os primeiro 80, pego os próximos 20

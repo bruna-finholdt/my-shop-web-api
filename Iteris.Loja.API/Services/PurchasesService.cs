@@ -139,6 +139,17 @@ namespace Iteris.Loja.API.Services
             // Consulta itens no banco
             var listaPesquisa = await _ordersRepository.Pesquisar(
                 order => !queryResquest.MinimumPriceValue.HasValue || queryResquest.MinimumPriceValue < order.TotalAmount,
+                //order é a instancia individual de um pedido na listagem de pedidos
+                //queryRequest.MinimumPriceValue.HasValue verifica se o valor mínimo de preço foi setado no filtro
+                //Se MinimumProceValue não tiver um valor (ou seja, não for setado no filtro...se nd for passado nele),
+                //!queryResquest.MinimumPriceValue.HasValue = true, o filtro é ignorado e tds os pedidos serão considerados na listagem de pedidos 
+
+                //Se MinimumProceValue tiver um valor, !queryResquest.MinimumPriceValue.HasValue = false e a segunda parte da expressão será analisada,
+                //queryResquest.MinimumPriceValue < order.TotalAmount - comparação entre o valor setado no filtro e o valor total do pedido
+                //Se o valor minimo for menor que o valor total do pedido, a 2ª expressão = true e esse pedido entra nos resultados da pesquisa.
+                //Se o valor minimo for maior que o valor total do pedido, a 2ª expressão = false e esse pedido não entra nos resultados da pesquisa.
+                //Dessa forma, são incluidos na filtragem de pedidos apenas os que tem um valor maior que o valor minimo setado no filtro 
+
                 queryResquest.PaginaAtual,
                 queryResquest.Quantidade
             );
